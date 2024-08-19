@@ -18,7 +18,7 @@ public class Cadastro {
 		this.nome = nome;
 		if (nome.equals(senha)) {
 			this.senha = senha;
-			System.out.println("Bem vindo " + nome + "!" );
+			System.out.println("Bem vindo, " + nome + "!" );
 		} else {
 			System.out.println("Login ou senha invalidos!");
 		}
@@ -33,23 +33,36 @@ public class Cadastro {
 	}
 	
 	public void insert() {
-		System.out.println("Digite o conteudo: ");
+		System.out.print("Digite o conteudo: ");
 		String conteudo = sc.nextLine();
 		conteudos.add(conteudo);
 	}
 	
 	public void listar() {
+		int i = 1;
 		for (String cont : conteudos) {
-			System.out.println(cont);
+			System.out.println((i) + "-" + cont);
+			i++;
 		}
 	}
 	
 	public void editar() {
-		for(int i = 0; i < conteudos.size(); i++) {
-			for (String cont : conteudos) {
-				System.out.println((i + 1) + cont);
-			}
-		}
+		listar();
+		System.out.print("Digite o numero do texto para edicao: ");
+		int numeroEdicao = sc.nextInt();
+		sc.nextLine();
+		
+		System.out.print("Digite o texto para edicao: ");
+		String numeroTexto = sc.nextLine();
+		
+		conteudos.set(numeroEdicao - 1, numeroTexto);
 	}
-	
+
+	public void deletar() {
+		listar();
+		System.out.print("Digite o numero do texto para deletar: ");
+		int numeroDeletar = sc.nextInt();
+		
+		conteudos.remove(numeroDeletar - 1);
+	}
 }
