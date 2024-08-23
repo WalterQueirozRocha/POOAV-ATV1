@@ -43,6 +43,6 @@ public class Conteudo {
 	
 	@Override
     public String toString() {
-        return "ID: " + id + ", Título: " + titulo + ", Mensagem: " + mensagem + ", Usuário: " + usuario;
+        return "ID: " + id + ", Título: " + titulo + ", Mensagem: " + mensagem + ", Autor: " + usuario;
     }
 }
