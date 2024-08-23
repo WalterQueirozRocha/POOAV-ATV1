@@ -2,11 +2,10 @@ package menu;
 
 import java.util.Scanner;
 
-import usuario.Cadastro;
-
 public class Menu {
 	static Scanner sc = new Scanner(System.in);
-	static Cadastro cadastro;
+	static Usuario usuario;
+	static GerenciarConteudo gerenciarConteudo = new GerenciarConteudo();
 	
 	public static void main(String[] args) {
 		
@@ -29,18 +28,14 @@ public class Menu {
 				System.out.print("Insira a senha: ");
 				String senha = sc.nextLine();
 				
-				cadastro = new Cadastro(nome, senha);
+				usuario = new Usuario(nome, senha);
 				
-				if(cadastro.getSenha() != null) {
+				if(usuario.getSenha() != null) {
 					MenuAposLogin();
 				} 
 				break;
 			case 2: 
-				if (cadastro != null) {
-					cadastro.listar(); 
-			    } else {
-			    	System.out.println("Você precisa estar logado para listar conteúdos.");
-			    }
+				gerenciarConteudo.listarMensagens();
 				break;
 			case 4:
 	            System.out.println("Saindo do menu...");
@@ -68,16 +63,30 @@ public class Menu {
 			switch(escolhaAposLogin) {
 			
 			case 1:
-				cadastro.insert();
+				System.out.print("Digite o titulo do conteudo: ");
+				String titulo = sc.nextLine();
+				System.out.print("Digite o conteudo: ");
+				String mensagem = sc.nextLine();
+				gerenciarConteudo.adicionarMensagem(titulo, mensagem, usuario);
 				break;
 			case 2:
-				cadastro.listar();
+				gerenciarConteudo.listarMensagens();
 				break;
-			case 3: 
-				cadastro.editar();
+			case 3:
+				gerenciarConteudo.listarMensagens();
+				System.out.print("Digite o ID da mensagem para editar: ");
+		        int idMensagem = sc.nextInt();
+		        sc.nextLine();
+				System.out.print("Escolha qual atributo editar (titulo, conteudo): ");
+				String atributoEditar = sc.nextLine();
+				System.out.print("Escolha o novo texto: ");
+				String novoTexto = sc.nextLine();
+				gerenciarConteudo.editar(idMensagem, atributoEditar, novoTexto);
 				break;
-			case 4: 
-				cadastro.deletar();
+			case 4:
+				System.out.print("Digite o ID da mensagem para excluir: ");
+		        int idExclusao = sc.nextInt();
+				gerenciarConteudo.excluir(idExclusao);
 				break;
 			case 5:
 	            System.out.println("Saindo do menu...");
