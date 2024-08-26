@@ -1,4 +1,6 @@
-package menu;
+package conteudos;
+
+import usuarios.Usuario;
 
 public class Conteudo {
 

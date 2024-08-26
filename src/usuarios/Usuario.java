@@ -1,4 +1,4 @@
-package menu;
+package usuarios;
 
 import java.util.Scanner;
 

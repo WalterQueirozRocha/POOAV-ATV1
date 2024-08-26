@@ -2,6 +2,9 @@ package menu;
 
 import java.util.Scanner;
 
+import conteudos.GerenciarConteudo;
+import usuarios.Usuario;
+
 public class Menu {
 	static Scanner sc = new Scanner(System.in);
 	static Usuario usuario;
@@ -97,6 +100,5 @@ public class Menu {
 	        }
 		} while(escolhaAposLogin != 5);
 	}
-	
 	
 }

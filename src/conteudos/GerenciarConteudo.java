@@ -1,7 +1,9 @@
-package menu;
+package conteudos;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import usuarios.Usuario;
 
 public class GerenciarConteudo {
 	
